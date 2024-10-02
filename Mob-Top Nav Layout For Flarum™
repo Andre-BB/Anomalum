@@ -1,6 +1,7 @@
 // FYI: I have absolutely no clue about JavaScript nor how to use GitHub.
 // The code does work, but doesn't yet move all primary controls to the new mobile top nav bar.
 // So far only the header logo & notifications have been moved to the new mobile top nav bar successfully.
+// Note: There is some CSS that goes with this too.
 
 // Custom Mobile Top Navigation Bar Layout For Flarum™-based Sites
 document.addEventListener('DOMContentLoaded', function() {
