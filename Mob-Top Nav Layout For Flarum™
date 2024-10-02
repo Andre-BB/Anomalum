@@ -1,0 +1,41 @@
+// FYI: I have absolutely no clue about JavaScript nor how to use GitHub.
+// The code does work, but doesn't yet move all primary controls to the new mobile top nav bar.
+// So far only the header logo & notifications have been moved to the new mobile top nav bar successfully.
+
+// Custom Mobile Top Navigation Bar Layout For Flarum™-based Sites
+document.addEventListener('DOMContentLoaded', function() {
+    const appNavigation = document.querySelector('#app-navigation');
+    const mobileDrawer = document.querySelector('#drawer');
+    function createPersistentNav() {
+
+    // Unsure if this works(?)
+    const headerTitle = document.querySelector('.Header-title').cloneNode(true);
+    const navList = document.createElement('ul');
+    navList.className = 'Header-controls';
+
+    // I think this successfully appends the notifications to the new mobile top nav bar(?)
+    const notificationsItem = document.querySelector('.item-notifications');
+    appNavigation.innerHTML = '';
+    navList.appendChild(headerTitle);
+    if (notificationsItem) {
+    navList.appendChild(notificationsItem);
+    }
+
+    // I think this successfully disables standard mobile layout app-drawer(?)
+    appNavigation.appendChild(navList);
+    if (mobileDrawer) {
+    mobileDrawer.parentNode.removeChild(mobileDrawer);
+    }
+    }
+
+    // Unsure what this does(?)
+    function checkScreenSize() {
+    if (window.innerWidth < 768) {
+    createPersistentNav();
+    }
+    }
+
+    // Unsure what this does(?)
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    }, false);
